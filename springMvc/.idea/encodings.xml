@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/config/AppInitializer.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/config/MvcConfiguration.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/controller/LoginController.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/controller/register.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/controller/studentController.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/dao/ReservationDao.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/dao/ReservationDaoImpl.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/dao/RoleDao.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/dao/RoleDaoImpl.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/dao/TypeReservationDao.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/dao/TypeReservationDaoImpl.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/dao/UtilisateurDao.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/dao/UtilisateurDaoImpl.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/model/AdministrateurEntity.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/model/ApprenantEntity.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/model/ReservationEntity.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/model/RolesEntity.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/model/TypereservationEntity.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/model/UtilisateurEntity.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/repositories/LoginRepostory.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/service/UtilisateurService.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/service/UtilisateurServiceImpl.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/test/Test.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/test/main.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/util/HibernateUtil.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/administrateur.jsp" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/apprenant.jsp" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/header.jsp" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/register.jsp" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" charset="windows-1252" />
+  </component>
+</project>
