@@ -12,12 +12,11 @@ import javax.persistence.Query;
 @Repository
 public class LoginRepostory {
 	
-	Session session = null;
 	Transaction tranasaction = null;
+	Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 
 	public UtilisateurEntity getUserByEmail(String email) {
 		UtilisateurEntity user;
-		session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 		Query query = session.createQuery("from UtilisateurEntity where email=:email");
 		query.setParameter("email", email);

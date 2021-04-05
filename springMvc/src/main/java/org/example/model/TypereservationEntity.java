@@ -23,6 +23,12 @@ public class TypereservationEntity implements Serializable{
 	}
 	
 
+	public TypereservationEntity(int idTypereseervtaion, String nom, int nbapprenant) {
+		super();
+		this.idTypereseervtaion = idTypereseervtaion;
+		this.nom = nom;
+		this.nbapprenant = nbapprenant;
+	}
 	public TypereservationEntity(int idTypereseervtaion, String nom, int nbapprenant, String datenbplace) {
 		super();
 		this.idTypereseervtaion = idTypereseervtaion;
@@ -30,7 +36,6 @@ public class TypereservationEntity implements Serializable{
 		this.nbapprenant = nbapprenant;
 		this.datenbplace = datenbplace;
 	}
-
 
 	public TypereservationEntity(String nom, int nbapprenant, String datenbplace) {
 		super();

@@ -14,11 +14,11 @@ public class main {
 
 		// add user ***************
 		RoleDaoImpl roleDao = new RoleDaoImpl();
-		RolesEntity roleEntity = roleDao.getById(2);
-//		UtilisateurEntity studentEntity = new UtilisateurEntity("b", "b", "b@gmail.com", "55", 21,
-//				roleEntity);
-//		UtilisateurDaoImpl userDao = new UtilisateurDaoImpl();
-//		userDao.addUser(studentEntity);
+		RolesEntity roleEntity = roleDao.getById(1);
+		UtilisateurEntity studentEntity = new UtilisateurEntity("bou", "bou", "bou@gmail.com", "55", 21,
+				roleEntity);
+		UtilisateurDaoImpl userDao = new UtilisateurDaoImpl();
+		userDao.addUser(studentEntity);
 
 		// list user dao ****************************
 //		UtilisateurDaoImpl userDao = new UtilisateurDaoImpl();
@@ -35,8 +35,8 @@ public class main {
 
 		// UPDATE user dao ****************************
 
-		UtilisateurDaoImpl userDao = new UtilisateurDaoImpl();
-		userDao.updateUser(new UtilisateurEntity(2, "zahir", "khadija", "zk@gmail.com", 21,  "55",roleEntity));
+//		UtilisateurDaoImpl userDao = new UtilisateurDaoImpl();
+//		userDao.updateUser(new UtilisateurEntity(2, "zahir", "khadija", "zk@gmail.com", 21,  "55",roleEntity));
 
 		// delete user dao
 //		UtilisateurDaoImpl userDao = new UtilisateurDaoImpl();

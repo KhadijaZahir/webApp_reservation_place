@@ -75,7 +75,7 @@
 
 <%@ include file="header.jsp"%>
 
-<form id="regForm" modelAttribute="user" action="registerProcess" method="POST">
+<form modelAttribute="user" action="registerProcess" method="POST">
     <li><a href="${pageContext.request.contextPath}"><span>Frontpage</span></a></li>
     <input name="nom" type="text" placeholder="nom"/>
     <input name="prenom" type="text" placeholder="prenom"/>

@@ -27,6 +27,7 @@
     <file url="file://$PROJECT_DIR$/src/main/java/org/example/test/main.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/src/main/java/org/example/util/HibernateUtil.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/addReservation.jsp" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/administrateur.jsp" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/apprenant.jsp" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/header.jsp" charset="windows-1252" />
