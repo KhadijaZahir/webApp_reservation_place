@@ -46,15 +46,6 @@ public class RolesEntity implements Serializable {
 		this.roleName = roleName;
 	}
 
-//    @OneToMany(mappedBy = "rolesByIdRole")
-//    public Collection<UtilisateurEntity> getUtilisateursByIdRole() {
-//        return utilisateursByIdRole;
-//    }
-
-//    public void setUtilisateursByIdRole(Collection<UtilisateurEntity> utilisateursByIdRole) {
-//        this.utilisateursByIdRole = utilisateursByIdRole;
-//    }
-
 	@Override
 	public String toString() {
 		return "RolesEntity [idRole=" + idRole + ", roleName=" + roleName + "]";

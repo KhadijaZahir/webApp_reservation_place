@@ -22,6 +22,7 @@ public class LoginRepostory {
 		query.setParameter("email", email);
 		try {
 			user = (UtilisateurEntity) query.getSingleResult();
+			session.close();//
 			return user;
 
 		} catch (Exception e) {

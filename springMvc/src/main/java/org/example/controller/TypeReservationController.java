@@ -45,35 +45,8 @@ public class TypeReservationController {
 	@RequestMapping(value = "deleteType", method = RequestMethod.POST)
 	public String deleteType(HttpServletRequest request) {
 		int id = Integer.parseInt(request.getParameter("id"));
-		//System.out.println(id);
 		trdi.removeTypeReservation(id);
 		return "redirect:/typeReservation";
 	}
-
-//	@RequestMapping("DispalyEditType")
-//	public String DispalyEditType(Model model,HttpServletRequest req) {
-//		int id = Integer.parseInt(req.getParameter("id"));
-//		typeReser= trdi.getAllTypeReservation(id);
-//		model.addAttribute("typeRe", typeReser);
-//
-//
-//		return "updateTypeReservation";
-//
-//	}
-//
-//
-//	@RequestMapping(value = "UpdateType", method = RequestMethod.POST)
-//	public String UpdateType(Model model ,HttpServletRequest req) {
-//
-//		long id = Long.parseLong(req.getParameter("id"));
-//		String typeRes = req.getParameter("typeRes");
-//		int nomberPlaces =Integer.parseInt(req.getParameter("nomberPlaces")) ;
-//		String datenbplace = req.getParameter("datenbplace");
-//		TypereservationEntity typeReser = new TypereservationEntity((int) id, typeRes, nomberPlaces, datenbplace);
-//		trdi.updateTypeReservation(typeReser);
-//
-//		return "redirect:/typeReservation";
-//
-//	}
 
 }

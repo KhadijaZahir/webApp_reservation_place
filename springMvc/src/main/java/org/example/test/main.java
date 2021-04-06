@@ -1,5 +1,6 @@
 package org.example.test;
 
+import org.example.dao.ReservationDaoImpl;
 import org.example.dao.RoleDaoImpl;
 import org.example.dao.UtilisateurDaoImpl;
 import org.example.model.RolesEntity;
@@ -13,12 +14,12 @@ public class main {
 		final Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 
 		// add user ***************
-		RoleDaoImpl roleDao = new RoleDaoImpl();
-		RolesEntity roleEntity = roleDao.getById(1);
-		UtilisateurEntity studentEntity = new UtilisateurEntity("bou", "bou", "bou@gmail.com", "55", 21,
-				roleEntity);
-		UtilisateurDaoImpl userDao = new UtilisateurDaoImpl();
-		userDao.addUser(studentEntity);
+//		RoleDaoImpl roleDao = new RoleDaoImpl();
+//		RolesEntity roleEntity = roleDao.getById(1);
+//		UtilisateurEntity studentEntity = new UtilisateurEntity("b", "b", "b@gmail.com", "55", "21",
+//				roleEntity);
+//		UtilisateurDaoImpl userDao = new UtilisateurDaoImpl();
+//		userDao.addUser(studentEntity);
 
 		// list user dao ****************************
 //		UtilisateurDaoImpl userDao = new UtilisateurDaoImpl();
@@ -40,7 +41,7 @@ public class main {
 
 		// delete user dao
 //		UtilisateurDaoImpl userDao = new UtilisateurDaoImpl();
-//		userDao.deleteUser(10);
+//		userDao.deleteUser(4);
 
 		// *******************************************************************
 
@@ -105,7 +106,7 @@ public class main {
 
 		// delete reservation dao
 //		ReservationDaoImpl resDao = new ReservationDaoImpl();
-//		resDao.deleteRes(5);
+//		resDao.deleteRes(3);
 
 		// *******************************************************************
 

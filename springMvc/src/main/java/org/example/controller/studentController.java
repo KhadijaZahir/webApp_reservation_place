@@ -37,26 +37,9 @@ public class studentController {
     private TypeReservationDao typeReservationDao;
 
 
-//    @RequestMapping("/reservation")
-//    public String listTtype(ModelMap modelMap) {
-//        List<TypereservationEntity> theType = typeReservationDao.getAllTypeReservation();
-//        modelMap.put("listTR",theType);
-//        return "student";
-//            }
-
-    @RequestMapping(value = "/reservation", method = RequestMethod.GET)
-    public String showRegister(Model model) {
-        System.out.println("hhiiiii reservation");
-        List<TypereservationEntity> theType = typeReservationDao.getAllTypeReservation();
-        model.addAttribute("listTR", theType);
-        return "reservation";
-    }
-
     @RequestMapping(value = "/reservation", method = RequestMethod.POST)
     public String addReservation(HttpSession session, HttpServletRequest request, HttpServletResponse response) {
         TypeReservationDaoImpl typeDao = new TypeReservationDaoImpl();
-
-//        TypereservationEntity listTr = typeDao.getById(3);
         String date = request.getParameter("datedate");
         String category = request.getParameter("category");
         TypereservationEntity listTr = resRepo.getResByName(category);
@@ -72,25 +55,28 @@ public class studentController {
     @RequestMapping(value = "addResBut")
 	public String listType(ModelMap modelMap ) {
 		List<TypereservationEntity> listTr = typeReservationDao.getAllTypeReservation();
-//		modelMap.put("listTr", listTr);
 		modelMap.addAttribute("listTr", listTr);
 		return "addReservation";
 
 	}
 
 
-    //    @RequestMapping(value = "/reservation", method = RequestMethod.POST)
-//    public ModelAndView addReservation(HttpServletRequest request, HttpServletResponse response) {
-//        System.out.println("hhiiiii date");
-//        TypeReservationDaoImpl typeDao = new TypeReservationDaoImpl();
-//        TypereservationEntity TypeRese = typeDao.getById(3);
-//        String date = request.getParameter("datedate");
-////        res.setDatereservation(request.getParameter("datedate"));
-//        ReservationEntity res = new ReservationEntity();
-//        res = new ReservationEntity(false, date, res.getUtilisateur(), TypeRese);
-//        reservationService.addRes(res);
-//        return new ModelAndView("apprenant");
-//
-////        return new ModelAndView("apprenant", "date", res.getDatereservation());
-//    }
+    @RequestMapping(value = "historicReservation")
+    public String histReservation(ModelMap modelMap ) {
+
+        List<ReservationEntity> listR = reservationService.getAllRes();
+        modelMap.addAttribute("listR", listR);
+        return "historicReservation";
+
+    }
+
+    @RequestMapping(value = "/historicReservation", method = RequestMethod.POST)
+    public String historicReservation(HttpSession session, HttpServletRequest request, HttpServletResponse response) {
+        System.out.println("hhiiiii historicReservation");
+        reservationService.getAllRes();
+        return "redirect:/dashboard";
+    }
+
+
+
 }

@@ -13,11 +13,7 @@ public class TypereservationEntity implements Serializable{
 	private String nom;
 	private int nbapprenant;
     private String datenbplace;
-    
-//    @Transient
-//	private Collection<ReservationEntity> reservations;
-	
-	
+
 	public TypereservationEntity() {
 		super();
 	}
@@ -84,15 +80,6 @@ public class TypereservationEntity implements Serializable{
 	public void setDatenbplace(String datenbplace) {
 		this.datenbplace = datenbplace;
 	}
-
-//	@OneToMany(mappedBy = "typereservationByIdTypereseervtaion")
-//	public Collection<ReservationEntity> getReservations() {
-//		return reservations;
-//	}
-//
-//	public void setReservations(Collection<ReservationEntity> reservations) {
-//		this.reservations = reservations;
-//	}
 
 
 	@Override

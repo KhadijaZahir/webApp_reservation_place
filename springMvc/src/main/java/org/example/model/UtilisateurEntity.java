@@ -6,7 +6,6 @@ import java.io.Serializable;
 @Entity
 @Table(name = "utilisateur")
 @Inheritance(strategy = InheritanceType.JOINED)
-//@NamedQuery(query = "SELECT t FROM UTILISATEUR t", name = "UTILISATEUR.All")
 public class UtilisateurEntity implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,9 +13,11 @@ public class UtilisateurEntity implements Serializable {
 	private int idUser;
 	private String nom;
 	private String prenom;
+	@Column(unique = true, nullable = false)
 	private String email;
-	private int phone;
+	private String phone;
 	private String password;
+	private Boolean confirmation=null;
 //	private List<ReservationEntity> reservations;
 
 	@ManyToOne
@@ -28,7 +29,7 @@ public class UtilisateurEntity implements Serializable {
 		super();
 	}
 
-	public UtilisateurEntity(int idUser, String nom, String prenom, String email, int phone, String password,
+	public UtilisateurEntity(int idUser, String nom, String prenom, String email, String phone, String password,
 			RolesEntity role) {
 		super();
 		this.idUser = idUser;
@@ -40,7 +41,7 @@ public class UtilisateurEntity implements Serializable {
 		this.role = role;
 	}
 
-	public UtilisateurEntity(String nom, String prenom, String email, String password, int phone) {
+	public UtilisateurEntity(String nom, String prenom, String email, String password, String phone) {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.email = email;
@@ -48,7 +49,7 @@ public class UtilisateurEntity implements Serializable {
 		this.phone = phone;
 	}
 
-	public UtilisateurEntity(String nom, String prenom, String email, String password, int phone, RolesEntity role) {
+	public UtilisateurEntity(String nom, String prenom, String email, String password, String phone, RolesEntity role) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
@@ -98,11 +99,11 @@ public class UtilisateurEntity implements Serializable {
 		this.password = password;
 	}
 
-	public int getPhone() {
+	public String getPhone() {
 		return phone;
 	}
 
-	public void setPhone(int phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 
@@ -114,34 +115,18 @@ public class UtilisateurEntity implements Serializable {
 		this.role = role;
 	}
 
+	public boolean isConfirmation() {
+		return confirmation;
+	}
+
+	public void setConfirmation(boolean confirmation) {
+		this.confirmation = confirmation;
+	}
+
 	@Override
 	public String toString() {
 		return "UtilisateurEntity [idUser=" + idUser + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email
 				+ ", password=" + password + ", phone=" + phone + ", role=" + role + "]";
 	}
-
-//	    @OneToMany(mappedBy = "utilisateurByIdUser")
-//	    public Collection<AdministateurEntity> getAdministateursByIdUser() {
-//	        return administateursByIdUser;
-//	    }
-
-//	    public void setAdministateursByIdUser(Collection<AdministateurEntity> administateursByIdUser) {
-//	        this.administateursByIdUser = administateursByIdUser;
-//	    }
-
-//	    @OneToMany(mappedBy = "utilisateurByIdUser")
-//	    public Collection<ApprenantEntity> getApprenantsByIdUser() {
-//	        return apprenantsByIdUser;
-//	    }
-
-//	@OneToMany(mappedBy = "utilisateur")
-//
-//	public List<ReservationEntity> getReservations() {
-//		return reservations;
-//	}
-//
-//	public void setReservations(List<ReservationEntity> reservations) {
-//		this.reservations = reservations;
-//	}
 
 }

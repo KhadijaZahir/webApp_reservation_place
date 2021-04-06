@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @Controller
-public class register {
+public class registerController {
 	@Qualifier("utilisateurService")
 	@Autowired
 	public UtilisateurService utilisateurService;
@@ -40,12 +40,10 @@ public class register {
 
 		RolesEntity roleEntity = roleDao.getById(2);
 		user.setRole(roleEntity);
-//		user.setReservationnbmax(user.getReservationnbmax());
 		user.setReservationnbmax(3);
 		utilisateurService.addUser(user);
 		System.out.println(user.getNom());
 		System.out.println("hhiiiii post");
-		//return new ModelAndView("apprenant", "nom", user.getNom());
 		return "redirect:/student";
 	}
 

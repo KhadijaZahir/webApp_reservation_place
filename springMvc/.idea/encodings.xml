@@ -3,8 +3,9 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/src/main/java/org/example/config/AppInitializer.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/src/main/java/org/example/config/MvcConfiguration.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/controller/ConfirmRegisterController.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/src/main/java/org/example/controller/LoginController.java" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/src/main/java/org/example/controller/register.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/controller/registerController.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/src/main/java/org/example/controller/studentController.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/src/main/java/org/example/dao/ReservationDao.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/src/main/java/org/example/dao/ReservationDaoImpl.java" charset="windows-1252" />

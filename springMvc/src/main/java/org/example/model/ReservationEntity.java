@@ -14,12 +14,10 @@ public class ReservationEntity implements Serializable {
 	private String datereservation;
 
 	@ManyToOne
-//	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_user", referencedColumnName = "id_user")
 	private UtilisateurEntity utilisateur;
 
-//	@ManyToOne(cascade = CascadeType.ALL)
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_typereseervtaion", referencedColumnName = "id_typereseervtaion")
 	private TypereservationEntity typereservationByIdTypereseervtaion;
 

@@ -7,7 +7,6 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "apprenant")
 public class ApprenantEntity extends UtilisateurEntity {
-	@Column(name = "reservationnbmax")
 	private int reservationnbmax;
 
 	public ApprenantEntity(int reservationnbmax) {
@@ -17,18 +16,17 @@ public class ApprenantEntity extends UtilisateurEntity {
 
 	public ApprenantEntity() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public ApprenantEntity(String nom, String prenom, String email, String password, int phone, RolesEntity role) {
+	public ApprenantEntity(String nom, String prenom, String email, String password, String phone, RolesEntity role) {
 		super(nom, prenom, email, password, phone, role);
 	}
 
-	public ApprenantEntity(String nom, String prenom, String email, String password, int phone) {
+	public ApprenantEntity(String nom, String prenom, String email, String password, String phone) {
 		super(nom, prenom, email, password, phone);
 	}
 
-	public ApprenantEntity(String nom, String prenom, String email, String password, int phone, int reservationnbmax,
+	public ApprenantEntity(String nom, String prenom, String email, String password, String phone, int reservationnbmax,
 			RolesEntity role) {
 		super(nom, prenom, email, password, phone, role);
 		this.reservationnbmax = reservationnbmax;

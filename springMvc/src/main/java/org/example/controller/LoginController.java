@@ -43,8 +43,11 @@ public class LoginController {
                 return "administrateur";
 
             }
-            else if (user.getRole().getRoleName().equals("student")) {
+            else if ((user.getRole().getRoleName().equals("student") && user.isConfirmation()) == true) {
                 return "apprenant";
+            }else if ((user.getRole().getRoleName().equals("student") && user.isConfirmation()) == false) {
+                modelMap.addAttribute("error", "Il faut que l'admin confirme votre inscription");
+                return "login";
             }
 
         } else {
