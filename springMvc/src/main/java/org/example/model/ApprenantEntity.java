@@ -9,14 +9,15 @@ import javax.persistence.Table;
 public class ApprenantEntity extends UtilisateurEntity {
 	private int reservationnbmax;
 
+	public ApprenantEntity() {
+		super();
+	}
+
 	public ApprenantEntity(int reservationnbmax) {
 		super();
 		this.reservationnbmax = reservationnbmax;
 	}
 
-	public ApprenantEntity() {
-		super();
-	}
 
 	public ApprenantEntity(String nom, String prenom, String email, String password, String phone, RolesEntity role) {
 		super(nom, prenom, email, password, phone, role);

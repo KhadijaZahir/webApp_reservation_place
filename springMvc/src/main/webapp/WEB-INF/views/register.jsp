@@ -79,10 +79,12 @@
     <li><a href="${pageContext.request.contextPath}"><span>Frontpage</span></a></li>
     <input name="nom" type="text" placeholder="nom"/>
     <input name="prenom" type="text" placeholder="prenom"/>
-    <input name="email" type="email" placeholder="email"/>
-    <input name="phone" type="number" placeholder="phone"/>
-    <input name="password" type="text" placeholder="passWord"/>
+    <input name="email" type="email" placeholder="email" required="true" requiredMessage="La saisie du email est obligatoire !" />
+    <input name="phone" type="number" placeholder="phone" required="true" requiredMessage="La saisie du N de tele est obligatoire !" />
+    <input name="password" type="text" pattern="^(?=.*[8-16])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,20}$
+" placeholder="passWord" required="true" requiredMessage="La saisie du mot de passe est obligatoire !" />
     <button type="submit">submit</button>
+<%--    [0]{1}[6-7]{1}[0-9]{8}--%>
 </form>
 </body>
 </html>

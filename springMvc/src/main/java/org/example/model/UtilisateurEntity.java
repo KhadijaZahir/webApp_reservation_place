@@ -1,13 +1,18 @@
 package org.example.model;
 
+import com.sun.istack.NotNull;
+
 import javax.persistence.*;
 import java.io.Serializable;
+
 
 @Entity
 @Table(name = "utilisateur")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class UtilisateurEntity implements Serializable {
 	@Id
+	//La génération de la clé primaire se fera à partir d’une Identité propre au SGBD
+	//Strategy = GenerationType.AUTO = La génération de la clé primaire est laissée à l’implémentation
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_user")
 	private int idUser;
@@ -17,14 +22,11 @@ public class UtilisateurEntity implements Serializable {
 	private String email;
 	private String phone;
 	private String password;
-	private Boolean confirmation=null;
-//	private List<ReservationEntity> reservations;
+	private Boolean confirmation;
 
 	@ManyToOne
-//	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_role", referencedColumnName = "id_role")
 	private RolesEntity role;
-
 	public UtilisateurEntity() {
 		super();
 	}
@@ -115,11 +117,11 @@ public class UtilisateurEntity implements Serializable {
 		this.role = role;
 	}
 
-	public boolean isConfirmation() {
+	public Boolean getConfirmation() {
 		return confirmation;
 	}
 
-	public void setConfirmation(boolean confirmation) {
+	public void setConfirmation(Boolean confirmation) {
 		this.confirmation = confirmation;
 	}
 

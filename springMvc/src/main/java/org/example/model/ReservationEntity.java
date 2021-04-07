@@ -13,17 +13,19 @@ public class ReservationEntity implements Serializable {
 	private boolean confirmerreservation;
 	private String datereservation;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_user", referencedColumnName = "id_user")
 	private UtilisateurEntity utilisateur;
-
+//FetchType.LAZY : indique que la relation doit être chargée à la demande
+//FetchType.EAGER : indique que la relation doit être chargée en même temps que l'entité qui la porte.
+	//Since Eager fetching loads ALL relationships automatically, It's a big performance hog
+//Lazy fetching doesn't load any relationships unless told to, which leads to better performance
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_typereseervtaion", referencedColumnName = "id_typereseervtaion")
 	private TypereservationEntity typereservationByIdTypereseervtaion;
 
 	public ReservationEntity() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public ReservationEntity(int idReservation, boolean confirmerreservation, String datereservation,
@@ -62,8 +64,9 @@ public class ReservationEntity implements Serializable {
 		return confirmerreservation;
 	}
 
-	public void setConfirmerreservation(boolean confirmerreservation) {
+	public boolean setConfirmerreservation(boolean confirmerreservation) {
 		this.confirmerreservation = confirmerreservation;
+		return confirmerreservation;
 	}
 
 	public String getDatereservation() {

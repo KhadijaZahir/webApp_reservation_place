@@ -7,7 +7,7 @@ import java.io.Serializable;
 @Table(name = "typereservation")
 public class TypereservationEntity implements Serializable{
 	@Id
-	@GeneratedValue
+	@GeneratedValue /// I need here auto increment
 	@Column(name = "id_typereseervtaion")
 	private int idTypereseervtaion;
 	private String nom;

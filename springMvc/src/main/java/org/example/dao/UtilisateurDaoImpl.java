@@ -8,15 +8,20 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+//@Repository annotation is a marker for any class that fulfils the role of a repository (also known as Data Access Object or DAO).
 @Repository
 @Component("UtilisateurDao")
 public class UtilisateurDaoImpl implements UtilisateurDao {
 	Session session;
     @Override
     public void addUser(UtilisateurEntity user) {
+        //SessionFactory.openSession() always opens a new session that need to be close once the operations is done.
+        // SessionFactory.getCurrentSession() returns a session bound to a context - no need to close it.
         session = HibernateUtil.getSessionFactory().getCurrentSession();
+        //session.beginTransaction is used to start a transaction
         session.beginTransaction();
         session.save(user);
+        // transaction.commit() is used for committing all changes happened during a transaction so that database remains in consistent state after operations
         session.getTransaction().commit();
         System.out.println("add user");
     }

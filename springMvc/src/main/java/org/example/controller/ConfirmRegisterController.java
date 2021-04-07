@@ -54,11 +54,11 @@ public class ConfirmRegisterController {
             adminRepository.ConfirmerUsersRegister(id);
         return "redirect:/administrateur";
     }
-    @RequestMapping(value = "/rejeter", method = RequestMethod.POST)
-    public String rejeter(@RequestParam("id") int id) {
-        adminRepository.RejecterUsersRegister(id);
-        return "redirect:/administrateur";
-    }
+//    @RequestMapping(value = "/rejeter", method = RequestMethod.POST)
+//    public String rejeter(@RequestParam("id") int id) {
+//        adminRepository.RejecterUsersRegister(id);
+//        return "redirect:/administrateur";
+//    }
 
 
 }

@@ -5,6 +5,7 @@ import org.example.model.TypereservationEntity;
 import org.example.model.UtilisateurEntity;
 import org.example.util.HibernateUtil;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 
@@ -35,4 +36,22 @@ public class ReservationRepository {
         List<ReservationEntity> list = query.list();
         return list;
     }
+
+    public void confirmerResrvation(int id) {
+        Transaction x = session.beginTransaction();
+        ReservationEntity user = session.find(ReservationEntity.class, id);
+        try {
+            user.setConfirmerreservation(true);
+            System.out.println("hey");
+            session.flush();
+//            session.persist(user);
+            x.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
+
+
+
+

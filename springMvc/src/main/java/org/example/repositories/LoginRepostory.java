@@ -18,7 +18,7 @@ public class LoginRepostory {
 	public UtilisateurEntity getUserByEmail(String email) {
 		UtilisateurEntity user;
 		session.beginTransaction();
-		Query query = session.createQuery("from UtilisateurEntity where email=:email");
+		Query query = session.createQuery("SELECT U from UtilisateurEntity U where email=:email");
 		query.setParameter("email", email);
 		try {
 			user = (UtilisateurEntity) query.getSingleResult();

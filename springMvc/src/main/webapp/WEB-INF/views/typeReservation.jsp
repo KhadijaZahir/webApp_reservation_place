@@ -1,8 +1,13 @@
 <%@ include file="header.jsp"%>
 
+<a href="logout"><button>Logout</button></a>
+<a href="confirmRegister"><button>Confirmer inscription</button></a>
+<a href="confirmerReservation"><button>Confirmer Reservation</button></a>
+<a href="typeReservation"><button>Determiner nombre de place</button></a>
+
 <div id="warepper">
     <div id="header">
-        <h2>List of Type Reservation</h2>
+        <h2>liste de tous les Types de Reservation</h2>
 
     </div>
 </div>
@@ -40,10 +45,6 @@
                             <input type="hidden" value="${typeR.idTypereseervtaion}" name="id" /> <input
                                 type="submit" value="Delete" />
                         </form>
-<%--                        <form action="DispalyEditType" method="post">--%>
-<%--                            <input type="hidden" value="${typeR.idTypereseervtaion}" name="id" /> <input--%>
-<%--                                type="submit" value="update" />--%>
-<%--                        </form>--%>
                     </td>
 
                 </tr>

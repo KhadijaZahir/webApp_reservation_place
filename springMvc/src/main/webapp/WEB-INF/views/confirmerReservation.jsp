@@ -3,7 +3,7 @@
 <a href="logout"><button>Logout</button></a>
 <a href="confirmRegister"><button>Confirmer inscription</button></a>
 <a href="confirmerReservation"><button>Confirmer Reservation</button></a>
-<a href=""><button>Déterminer nombre de place</button></a>
+<a href="typeReservation"><button>Déterminer nombre de place</button></a>
 
 <h4 class="form-header">confirmReservation</h4>
 
@@ -17,23 +17,23 @@
             <th>Nom</th>
             <th>Prenom</th>
             <th>Email</th>
-            <th>Téléphone</th>
-            <th>Type de Réervation</th>
+            <th>Telephone</th>
+            <th>Type de Reservation</th>
             <th>Confirmation</th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${reservation}"  var="reservation">
+        <c:forEach items="${resevation}"  var="resevation">
             <tr class="">
-                <td>${reservation.nom}</td>
-                <td>${reservation.prenom}</td>
-                <td>${reservation.email}</td>
-                <td>${reservation.phone}</td>
-                <td>${reservation.typereservationByIdTypereseervtaion.nom}</td>
+                <td>${resevation.utilisateur.nom}</td>
+                <td>${resevation.utilisateur.prenom}</td>
+                <td>${resevation.utilisateur.email}</td>
+                <td>${resevation.utilisateur.phone}</td>
+                <td>${resevation.typereservationByIdTypereseervtaion.nom}</td>
                 <td>
 
-                    <form action="confirmer" method="post">
-                        <input type="hidden" value="${reservation.idUser}" name="id">
+                    <form action="confirmerRes" method="post">
+                        <input type="hidden" value="${resevation.idReservation}" name="id">
                         <input type="submit" value="confirmer"/>
                     </form>
 

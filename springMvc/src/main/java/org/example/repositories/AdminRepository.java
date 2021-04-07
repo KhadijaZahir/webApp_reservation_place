@@ -37,7 +37,6 @@ Transaction x = session.beginTransaction();
         try {
             user.setConfirmation(true);
             session.update(user);
-            System.out.println("email " + user.getEmail());
             x.commit();
             session.close();
         } catch (Exception e) {
@@ -45,18 +44,18 @@ Transaction x = session.beginTransaction();
         }
     }
 
-    public void RejecterUsersRegister(int id) {
-        Transaction x = session.beginTransaction();
-        UtilisateurEntity user = session.find(UtilisateurEntity.class, id);
-        try {
-            user.setConfirmation(false);
-            session.update(user);
-            System.out.println("email " + user.getEmail());
-            x.commit();
-            session.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//    public void RejecterUsersRegister(int id) {
+//        Transaction x = session.beginTransaction();
+//        UtilisateurEntity user = session.find(UtilisateurEntity.class, id);
+//        try {
+//            user.setConfirmation(false);
+//            session.update(user);
+//            System.out.println("email " + user.getEmail());
+//            x.commit();
+//            session.close();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
     }
 
-}
+

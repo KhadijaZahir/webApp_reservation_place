@@ -27,12 +27,12 @@
 
 	<header class="header">
 		<nav class="navbar bg-dark">
-<%--			<img src="${pageContext.request.contextPath}/resources/img/logo.jpg"--%>
-<%--				alt="logo" class="logo" />--%>
+			<img src="${pageContext.request.contextPath}/resources/img/logo.jpg"
+				alt="logo" class="logo" />
 
-			<img src="<c:out value="/resources/img/logo.jpg"/>" alt="logo">
-<%--			 <img--%>
-<%--				src="/resources/img/logo-bde.png" alt="logo-bde">--%>
+			<img src="<c:out value="${pageContext.request.contextPath}/resources/img/logo.jpg"/>" alt="logo">
+			 <img
+				src="/resources/img/ogo.jpg" alt="logo-bde">
 
 		</nav>
 

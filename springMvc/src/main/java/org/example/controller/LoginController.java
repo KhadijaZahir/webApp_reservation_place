@@ -35,17 +35,17 @@ public class LoginController {
         UtilisateurEntity user = new UtilisateurEntity();
         LoginRepostory userRep=new LoginRepostory();
         String email = req.getParameter("email");
-        String pass = req.getParameter("pass");
+        String password = req.getParameter("password");
         user = userRep.getUserByEmail(email);
-        if (user.getPassword().equals(pass)) {
+        if (user.getPassword().equals(password)) {
             session.setAttribute("user_authentified", user);
             if(user.getRole().getRoleName().equals("admin")) {
                 return "administrateur";
 
             }
-            else if ((user.getRole().getRoleName().equals("student") && user.isConfirmation()) == true) {
+            else if ((user.getRole().getRoleName().equals("student") && user.getConfirmation()) == true) {
                 return "apprenant";
-            }else if ((user.getRole().getRoleName().equals("student") && user.isConfirmation()) == false) {
+            }else if ((user.getRole().getRoleName().equals("student") && user.getConfirmation()) != false) {
                 modelMap.addAttribute("error", "Il faut que l'admin confirme votre inscription");
                 return "login";
             }
