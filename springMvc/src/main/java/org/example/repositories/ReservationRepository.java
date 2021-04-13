@@ -14,9 +14,10 @@ import java.util.List;
 @Repository
 public class ReservationRepository {
 
-    Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+    Session session = null;
 
     public TypereservationEntity getResByName(String name) {
+        session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
         Query query = session.createQuery("from TypereservationEntity where nom=: type");
         query.setParameter("type", name);
@@ -28,28 +29,27 @@ public class ReservationRepository {
         }
     }
 
-
-    public List<ReservationEntity> getReservationByUser(UtilisateurEntity user){
-        session.beginTransaction();
-        Query query = session.createQuery("From ReservationEntity where UtilisateurEntity .id=:userId");
-        query.setParameter("userId", user.getIdUser());
-        List<ReservationEntity> list = query.list();
-        return list;
-    }
-
     public void confirmerResrvation(int id) {
-        Transaction x = session.beginTransaction();
+        session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
         ReservationEntity user = session.find(ReservationEntity.class, id);
         try {
             user.setConfirmerreservation(true);
-            System.out.println("hey");
-            session.flush();
-//            session.persist(user);
-            x.commit();
+            session.persist(user);
+            session.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+
+//    public List<ReservationEntity> getReservationByUser(UtilisateurEntity user){
+//        session.beginTransaction();
+//        Query query = session.createQuery("From ReservationEntity where UtilisateurEntity .id=:userId");
+//        query.setParameter("userId", user.getIdUser());
+//        List<ReservationEntity> list = query.list();
+//        return list;
+//    }
 }
 
 

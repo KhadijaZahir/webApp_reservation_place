@@ -25,7 +25,7 @@ public class TypeReservationDaoImpl implements TypeReservationDao {
 	public List<TypereservationEntity> getAllTypeReservation() {
 		  session = HibernateUtil.getSessionFactory().getCurrentSession();
 	        session.beginTransaction();
-	        List<TypereservationEntity> typeResList = session.createQuery("From TypereservationEntity").list();
+	        List<TypereservationEntity> typeResList = session.createQuery("From TypereservationEntity").getResultList();
 	        session.getTransaction().commit();
 	        return typeResList;
 	}

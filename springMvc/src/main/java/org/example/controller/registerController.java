@@ -25,26 +25,24 @@ public class registerController {
 	@Autowired
 	private RoleDaoImpl roleDao;
 
-
-
-
+	//@RequestMappingis used for mapping web requests onto handler methods in request-handling classes. The process of mapping web requests to handler methods is also called routing
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public String showRegister(Model model) {
-		System.out.println("hhiiiii get");
+//		System.out.println("hhiiiii get");
 		model.addAttribute("user", new ApprenantEntity());
 		return "register";
 	}
 
 	@RequestMapping(value = "/registerProcess", method = RequestMethod.POST)
-	public String addUser(@ModelAttribute("user") ApprenantEntity user) {
+	public String addUser(ApprenantEntity user) {
 
 		RolesEntity roleEntity = roleDao.getById(2);
 		user.setRole(roleEntity);
 		user.setReservationnbmax(3);
 		utilisateurService.addUser(user);
-		System.out.println(user.getNom());
-		System.out.println("hhiiiii post");
-		return "redirect:/student";
+//		System.out.println(user.getNom());
+//		System.out.println("hhiiiii post");
+		return "redirect:/";
 	}
 
 

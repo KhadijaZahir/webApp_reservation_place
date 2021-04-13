@@ -21,8 +21,9 @@ public class UtilisateurEntity implements Serializable {
 	@Column(unique = true, nullable = false)
 	private String email;
 	private String phone;
+	//	@Size(min = 6, max = 15)
 	private String password;
-	private Boolean confirmation;
+	private Boolean confirmation = false;
 
 	@ManyToOne
 	@JoinColumn(name = "id_role", referencedColumnName = "id_role")

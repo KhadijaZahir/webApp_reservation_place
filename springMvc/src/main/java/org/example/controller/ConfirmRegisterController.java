@@ -1,14 +1,8 @@
 package org.example.controller;
 
-import org.example.dao.TypeReservationDao;
-import org.example.dao.TypeReservationDaoImpl;
-import org.example.model.ApprenantEntity;
-import org.example.model.ReservationEntity;
-import org.example.model.TypereservationEntity;
 import org.example.model.UtilisateurEntity;
 import org.example.repositories.AdminRepository;
-import org.example.repositories.ReservationRepository;
-import org.example.service.ReservationService;
+
 import org.example.service.UtilisateurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -18,9 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -35,7 +26,7 @@ public class ConfirmRegisterController {
 
 
     @RequestMapping(value = "confirmRegister")
-    public String histReservation(ModelMap modelMap ) {
+    public String ConfirmRegister(ModelMap modelMap) {
         List<UtilisateurEntity> student = utilisateurService.getAllUsers();
         modelMap.addAttribute("student", student);
         return "administrateur";
@@ -43,22 +34,17 @@ public class ConfirmRegisterController {
     }
 
     @RequestMapping(value = "/confirmRegister", method = RequestMethod.POST)
-    public String historicReservation(HttpSession session, HttpServletRequest request, HttpServletResponse response) {
-        System.out.println("hhiiiii confirmRegister");
+    public String showStudents() {
         adminRepository.getUserByRole("student");
         return "redirect:/administrateur";
     }
 
-        @RequestMapping(value = "/confirmer", method = RequestMethod.POST)
+    @RequestMapping(value = "/confirmer", method = RequestMethod.POST)
+    //@RequestParam : annotation used for accessing the query parameter values from the request.
     public String Confirmer(@RequestParam("id") int id) {
-            adminRepository.ConfirmerUsersRegister(id);
-        return "redirect:/administrateur";
+        adminRepository.ConfirmerUsersRegister(id);
+        return "redirect:/confirmRegister";
     }
-//    @RequestMapping(value = "/rejeter", method = RequestMethod.POST)
-//    public String rejeter(@RequestParam("id") int id) {
-//        adminRepository.RejecterUsersRegister(id);
-//        return "redirect:/administrateur";
-//    }
 
 
 }

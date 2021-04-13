@@ -1,20 +1,21 @@
 <%@ include file="header.jsp"%>
+<%-- *****************confirmer student register*************--%>
 
-<a href="logout"><button>Logout</button></a>
-<a href="confirmRegister"><button>Confirmer inscription</button></a>
-<a href="confirmerReservation"><button>Confirmer Reservation</button></a>
-<a href="typeReservation"><button>Déterminer nombre de place</button></a>
+<div class="mt-5 ml-3">
+ <h4 class="form-header">Dashboard Aministrateur</h4>
+
+ <a href="logout"><button class="btn btn-primary btn-lg float-right mr-3">Se deconnecter</button></a>
+ <a href="confirmRegister"><button class="btn btn-primary btn-lg">Confirmer inscription</button></a>
+ <a href="confirmerReservation"><button class="btn btn-primary btn-lg">Confirmer Reservation</button></a>
+ <a href="typeReservation"><button class="btn btn-primary btn-lg">Determiner nombre de place</button></a>
+</div>
 
 
 
-<h4 class="form-header">Administrateur</h4>
-
-<div class="forms col-md-12 bounceInDown mainContent" data-wow-delay="0.2s">
-
-
+<div class="forms col-md-12 bounceInDown mainContent mt-5" data-wow-delay="0.2s">
 
  <table class="table table-striped">
-  <thead>
+  <thead class="bg-primary text-white">
   <tr>
    <th>Nom</th>
    <th>Prenom</th>
@@ -34,12 +35,12 @@
 
      <form action="confirmer" method="post">
       <input type="hidden" value="${student.idUser}" name="id">
-      <input type="submit" value="confirmer"/>
+      <button class="btn btn-primary rounded" type="submit" value="confirmer">confirmer</button>
      </form>
-     <form action="rejeter" method="post">
-      <input type="hidden" value="${student.idUser}" name="id">
-      <button>rejeter</button>
-     </form>
+<%--     <form action="rejeter" method="post">--%>
+<%--      <input type="hidden" value="${student.idUser}" name="id">--%>
+<%--      <button>rejeter</button>--%>
+<%--     </form>--%>
 
     </td>
    </tr>

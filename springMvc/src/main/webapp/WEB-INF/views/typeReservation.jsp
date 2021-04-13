@@ -1,38 +1,40 @@
 <%@ include file="header.jsp"%>
 
-<a href="logout"><button>Logout</button></a>
-<a href="confirmRegister"><button>Confirmer inscription</button></a>
-<a href="confirmerReservation"><button>Confirmer Reservation</button></a>
-<a href="typeReservation"><button>Determiner nombre de place</button></a>
+<div class="mt-5 ml-3">
+    <h4 class="form-header">Dashboard Administrateur</h4>
 
-<div id="warepper">
-    <div id="header">
-        <h2>liste de tous les Types de Reservation</h2>
-
-    </div>
+    <a href="logout"><button class="btn btn-primary btn-lg float-right mr-3">Se deconnecter</button></a>
+    <a href="confirmRegister"><button class="btn btn-primary btn-lg">Confirmer inscription</button></a>
+    <a href="confirmerReservation"><button class="btn btn-primary btn-lg">Confirmer Reservation</button></a>
+    <a href="typeReservation"><button class="btn btn-primary btn-lg">Determiner nombre de place</button></a>
 </div>
-<div is="container">
+
+
+
+<div class="container mt-5">
     <div>
-        <form action="Addtype" method="post">
-            <label>Type Reservation :  </label>
-            <input type="text" name="typeRes">
-            <label>Number of places : </label>
-            <input type="text" name="nomberPlaces">
-            <label>Date : </label>
-            <input type="date" name="datenbplace">
-            <input type="submit">
+        <form action="Addtype" method="post" class="form-inline">
+            <label>Type de Reservation :   </label>
+            <input type="text" name="typeRes" class="form-control rounded ml-2">
+            <label>Nombres de places :   </label>
+            <input type="text" name="nomberPlaces" class="form-control rounded ml-2">
+            <label>Date :   </label>
+            <input type="date" name="datenbplace" class="form-control rounded ml-2">
+            <input type="submit" value="Enregistrer" class="form-control btn btn-primary rounded submit ml-2">
         </form>
     </div>
-    <div id="content">
+    <div>
 
-        <table>
-            <tr>
-                <th>Type Reservation</th>
-                <th>Number of places</th>
+        <table class="table table-striped mt-5">
+            <thead class="bg-primary text-white">
+               <tr>
+                <th>Type de Reservation</th>
+                <th>Nombres des places</th>
                 <th>Date</th>
-                <th>Action</th>
+                <th>Confirmation</th>
 
-            </tr>
+                </tr>
+            </thead>
             <c:forEach var="typeR" items="${typeRe}">
 
 
@@ -42,8 +44,9 @@
                     <td>${ typeR.datenbplace }</td>
                     <td>
                         <form action="deleteType" method="post">
-                            <input type="hidden" value="${typeR.idTypereseervtaion}" name="id" /> <input
-                                type="submit" value="Delete" />
+                            <input type="hidden" value="${typeR.idTypereseervtaion}" name="id" />
+                            <button class="btn btn-primary rounded" type="submit" value="Supprimer">Supprimer</button>
+
                         </form>
                     </td>
 

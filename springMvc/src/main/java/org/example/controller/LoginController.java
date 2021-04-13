@@ -21,7 +21,7 @@ public class LoginController {
     @Autowired
     private UtilisateurDao userDao;
 
-    @RequestMapping
+    @RequestMapping(value="/")
     public String Login(HttpSession session) {
         if (session.getAttribute("user_authentified") != null) {
             return "redirect:/dashboard";
@@ -60,7 +60,7 @@ public class LoginController {
     @RequestMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate();
-        return "redirect:/login";
+        return "redirect:/";
     }
 
 

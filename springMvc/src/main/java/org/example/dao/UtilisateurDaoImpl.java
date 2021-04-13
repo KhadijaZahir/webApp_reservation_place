@@ -6,13 +6,15 @@ import org.hibernate.Session;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 //@Repository annotation is a marker for any class that fulfils the role of a repository (also known as Data Access Object or DAO).
 @Repository
 @Component("UtilisateurDao")
 public class UtilisateurDaoImpl implements UtilisateurDao {
-	Session session;
+    Session session;
+
     @Override
     public void addUser(UtilisateurEntity user) {
         //SessionFactory.openSession() always opens a new session that need to be close once the operations is done.
@@ -39,22 +41,23 @@ public class UtilisateurDaoImpl implements UtilisateurDao {
     public List<UtilisateurEntity> getAllUsers() {
         session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
-        List<UtilisateurEntity> userList = session.createQuery("From UtilisateurEntity").list();
+        List<UtilisateurEntity> userList = session.createQuery("From UtilisateurEntity").getResultList();
         session.getTransaction().commit();
         return userList;
     }
 
     @Override
+//    @Transactional
     public void deleteUser(int id) {
-    	UtilisateurEntity user;
+        UtilisateurEntity user;
         session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
         user = session.find(UtilisateurEntity.class, id);
-        if (user != null){
+        if (user != null) {
             session.delete(user);
             session.flush();
             System.out.println("delete user");
-        }else{
+        } else {
             System.out.println("user does not exist");
         }
         session.getTransaction().commit();
@@ -62,11 +65,11 @@ public class UtilisateurDaoImpl implements UtilisateurDao {
 
     @Override
     public UtilisateurEntity updateUser(UtilisateurEntity user) {
-    	UtilisateurEntity userEntity;
+        UtilisateurEntity userEntity;
         session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
         userEntity = session.find(UtilisateurEntity.class, user.getIdUser());
-        if (userEntity != null){
+        if (userEntity != null) {
             userEntity.setNom(user.getNom());
             userEntity.setPrenom(user.getPrenom());
             userEntity.setEmail(user.getEmail());
@@ -74,7 +77,7 @@ public class UtilisateurDaoImpl implements UtilisateurDao {
             userEntity.setPhone(user.getPhone());
             userEntity.setRole(user.getRole());
             System.out.println("User updated");
-        }else{
+        } else {
             System.out.println("User does not exist");
         }
         session.getTransaction().commit();

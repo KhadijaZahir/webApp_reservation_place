@@ -11,18 +11,22 @@ import javax.persistence.Query;
 
 @Repository
 public class LoginRepostory {
-	
-	Transaction tranasaction = null;
-	Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+
+	//obtained Session object is obtained from the session factory
+	Session session = null;
+   //Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 
 	public UtilisateurEntity getUserByEmail(String email) {
-		UtilisateurEntity user;
+		session = HibernateUtil.getSessionFactory().getCurrentSession();
+		//used to start a transaction which may consists of one or more crude operations like INSERT,SELECT,DELETE etc.
 		session.beginTransaction();
+		//Create an instance of Query for executing a Java Persistence query language statement.
 		Query query = session.createQuery("SELECT U from UtilisateurEntity U where email=:email");
 		query.setParameter("email", email);
 		try {
-			user = (UtilisateurEntity) query.getSingleResult();
-			session.close();//
+			//Query.getResultList - for general use in any other case.
+			//Query.getSingleResult - for use when exactly one result object is expected.
+			UtilisateurEntity user = (UtilisateurEntity) query.getSingleResult();
 			return user;
 
 		} catch (Exception e) {

@@ -21,13 +21,9 @@ import java.util.List;
 
 @Controller
 public class ConfirmerReservationController {
-    @Qualifier("utilisateurService")
-    @Autowired
-    private UtilisateurService utilisateurService;
+    @Qualifier("reservationService")
     @Autowired
     private ReservationService reservationService;
-    @Autowired
-    private AdminRepository adminRepository;
     @Autowired
     private ReservationRepository reservationRepository;
 
@@ -35,33 +31,17 @@ public class ConfirmerReservationController {
 
         @RequestMapping(value = "confirmerReservation")
         public String confimertReservation(ModelMap modelMap) {
-//            List<UtilisateurEntity> student = utilisateurService.getAllUsers();
             List<ReservationEntity> resevation = reservationService.getAllRes();
-//            modelMap.addAttribute("student", student);
             modelMap.addAttribute("resevation", resevation);
             return "confirmerReservation";
 
         }
-//    @RequestMapping(value = "/confirmerReservation", method = RequestMethod.POST)
-//    public String confimReservation() {
-////        System.out.println("hhiiiii confirmRegister");
-////        ReservationRepository confRese =new ReservationRepository();
-////        confRese.confirmerResrvation(res);
-//        return "redirect:/confirmerReservation";
-//    }
-//
-//    @RequestMapping(value = "/confirmer", method = RequestMethod.POST)
-//    public String confirmer(@RequestParam("id") int id) {
-//        ReservationEntity res = new ReservationEntity();
-//        ReservationRepository confRese =new ReservationRepository();
-//        confRese.confirmerResrvation(res);
-//        return "redirect:/confirmerReservation";
-//    }
+
     @RequestMapping(value = "/confirmerRes", method = RequestMethod.POST)
     public String ConfirmerRes(@RequestParam("id") int id) {
-        System.out.println(id);
-        System.out.println("confirm here");
+
         reservationRepository.confirmerResrvation(id);
+        //        System.out.println(id);
         return "redirect:/confirmerReservation";
     }
 }

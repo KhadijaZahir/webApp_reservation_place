@@ -17,19 +17,27 @@ import java.util.List;
 
 @Controller
 public class TypeReservationController {
+	//The @Qualifier annotation is used to resolve the autowiring conflict, when there are multiple beans of same type
+	//@Qualifier annotation can be used on any class annotated with @Component
 	@Qualifier("typeReservationService")
 	@Autowired
 	private TypeReservationService trdi;
 	private TypereservationEntity typeReser = new TypereservationEntity();
 
+	//if we don't specify a value, it's going to map to any HTTP request.
 	@RequestMapping("typeReservation")
-	public ModelAndView typeReserv(ModelMap modelMap) {
+	public String typeReserv(ModelMap modelMap) {
 		List<TypereservationEntity> theType = trdi.getAllTypeReservation();
 		modelMap.put("typeRe", theType);
-		return new ModelAndView("typeReservation");
+		return "typeReservation";
+		// the model used for rendering views.
+		//ModelMap is also used to pass values to render a view
+		//The advantage of ModelMap is it gives us the ability to pass a collection of values and treat these values as if they were within a Map
+		//Model is an interface while ModelMap is a class
+		// modelAndView : to pass values to a view
 	}
 
-
+   //form of add type of reservation with action Addtype
 	@RequestMapping(value = "Addtype", method = RequestMethod.POST)
 	public String addType(Model model , HttpServletRequest req) {
 		String typeRes = req.getParameter("typeRes");
@@ -41,7 +49,7 @@ public class TypeReservationController {
 		return "redirect:/typeReservation";
 
 	}
-
+    //button delete
 	@RequestMapping(value = "deleteType", method = RequestMethod.POST)
 	public String deleteType(HttpServletRequest request) {
 		int id = Integer.parseInt(request.getParameter("id"));

@@ -1,30 +1,20 @@
 package org.example.controller;
 
-import org.example.dao.ReservationDaoImpl;
 import org.example.dao.TypeReservationDao;
 import org.example.dao.TypeReservationDaoImpl;
 import org.example.model.*;
-import org.example.repositories.LoginRepostory;
 import org.example.repositories.ReservationRepository;
 import org.example.service.ReservationService;
-import org.example.service.UtilisateurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.util.Date;
 import java.util.List;
-import java.util.logging.Logger;
 @Controller
 public class studentController {
     @Qualifier("reservationService")
@@ -46,7 +36,7 @@ public class studentController {
         ReservationEntity res = new ReservationEntity();
         res = new ReservationEntity(false, date, (UtilisateurEntity) session.getAttribute("user_authentified"), listTr);
         //
-        System.out.println("hhiiiii date");
+//        System.out.println("hhiiiii date");
         reservationService.addRes(res);
 
         return "redirect:/dashboard";
@@ -72,7 +62,7 @@ public class studentController {
 
     @RequestMapping(value = "/historicReservation", method = RequestMethod.POST)
     public String historicReservation(HttpSession session, HttpServletRequest request, HttpServletResponse response) {
-        System.out.println("hhiiiii historicReservation");
+//        System.out.println("hhiiiii historicReservation");
         reservationService.getAllRes();
         return "redirect:/dashboard";
     }

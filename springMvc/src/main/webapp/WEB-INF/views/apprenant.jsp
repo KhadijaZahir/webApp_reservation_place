@@ -1,8 +1,15 @@
 <%@ include file="header.jsp"%>
 
-<a href="logout"><button>Logout</button></a>
-<a href="addResBut"><button>Add Reservation</button></a>
-<a href="historicReservation"><button>Historic of Reservation</button></a>
+<div class="mt-5 ml-3">
+    <h4 class="form-header">Dashboard Apprenant</h4>
+
+    <a href="logout"><button class="btn btn-primary btn-lg float-right mr-3">Se deconnecter</button></a>
+    <a href="addResBut"><button class="btn btn-primary btn-lg">Ajouter Reservation</button></a>
+    <a href="historicReservation"><button class="btn btn-primary btn-lg">Historique des Reservation</button></a>
+</div>
+
+
+
 
 <%--<h1>Add Reservation</h1>--%>
 <%--<form method="post" action="reservation">--%>

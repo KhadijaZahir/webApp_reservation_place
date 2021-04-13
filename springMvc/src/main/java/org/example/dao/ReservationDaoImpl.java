@@ -34,7 +34,7 @@ public class ReservationDaoImpl implements ReservationDao{
     public List<ReservationEntity> getAllRes() {
         session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
-        List<ReservationEntity> resList = session.createQuery("From ReservationEntity").list();
+        List<ReservationEntity> resList = session.createQuery("From ReservationEntity").getResultList();
         session.getTransaction().commit();
         return resList;
     }

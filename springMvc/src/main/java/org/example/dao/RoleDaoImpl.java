@@ -23,7 +23,7 @@ public class RoleDaoImpl implements RoleDao{
 	public List<RolesEntity>listRoles() {
 		session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
-        List<RolesEntity> roleList = session.createQuery("From RolesEntity").list();
+        List<RolesEntity> roleList = session.createQuery("From RolesEntity").getResultList();
         session.getTransaction().commit();
         return roleList;
 	}
